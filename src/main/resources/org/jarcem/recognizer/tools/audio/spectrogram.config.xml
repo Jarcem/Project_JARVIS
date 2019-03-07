@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+
+    <component name="microphone"
+               type="org.jarcem.recognizer.frontend.util.Microphone"/>
+
+    <component name="frontEnd" type="org.jarcem.recognizer.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>streamDataSource</item>
+            <item>preemphasizer</item>
+            <item>windower</item>
+            <item>fft</item>
+        </propertylist>
+    </component>
+
+    <component name="preemphasizer"
+               type="org.jarcem.recognizer.frontend.filter.Preemphasizer"/>
+
+    <component name="windower"
+               type="org.jarcem.recognizer.frontend.window.RaisedCosineWindower">
+    </component>
+
+    <component name="fft"
+               type="org.jarcem.recognizer.frontend.transform.DiscreteFourierTransform"/>
+
+    <component name="streamDataSource"
+               type="org.jarcem.recognizer.frontend.util.StreamDataSource">
+        <property name="sampleRate" value="8000"/>
+    </component>
+
+    <component name="cepstrumFrontEnd" type="org.jarcem.recognizer.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>cstreamDataSource</item>
+            <item>dither</item>
+            <item>cpreemphasizer</item>
+            <item>cwindower</item>
+            <item>cfft</item>
+            <item>melFilterBank</item>
+
+            <!--item>dct</item-->
+            <!--item>dataDumper</item-->
+            <!--item>liveCMN</item>
+            <item>featureExtraction</item-->
+        </propertylist>
+    </component>
+
+    <component name="cstreamDataSource" type="org.jarcem.recognizer.frontend.util.StreamDataSource">
+        <property name="sampleRate" value="8000"/>
+    </component>
+
+
+    <component name="cpreemphasizer"
+               type="org.jarcem.recognizer.frontend.filter.Preemphasizer"/>
+    <component name="dither"
+               type="org.jarcem.recognizer.frontend.filter.Dither"/>
+
+
+    <component name="cwindower"
+               type="org.jarcem.recognizer.frontend.window.RaisedCosineWindower"/>
+
+    <component name="cfft"
+               type="org.jarcem.recognizer.frontend.transform.DiscreteFourierTransform"/>
+
+    <component name="melFilterBank"
+               type="org.jarcem.recognizer.frontend.frequencywarp.MelFrequencyFilterBank">
+        <property name="numberFilters" value="31"/>
+        <property name="minimumFrequency" value="200"/>
+        <property name="maximumFrequency" value="3500"/>
+    </component>
+
+    <component name="dct"
+               type="org.jarcem.recognizer.frontend.transform.DiscreteCosineTransform"/>
+
+
+    <component name="wavWriter"
+               type="org.jarcem.recognizer.frontend.util.WavWriter"/>
+
+    <component name="dataDumper"
+               type="org.jarcem.recognizer.frontend.util.DataDumper"/>
+
+    <component name="liveCMN"
+               type="org.jarcem.recognizer.frontend.feature.LiveCMN"/>
+
+    <component name="featureExtraction"
+               type="org.jarcem.recognizer.frontend.feature.DeltasFeatureExtractor"/>
+
+</config>

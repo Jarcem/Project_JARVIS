@@ -1,0 +1,81 @@
+#JSGF V1.0;
+
+grammar LanguageGrammar;
+
+<digit> = zero		    |
+          one 		    |
+          two  			|
+          three			|
+          four  		|
+          five  		|
+          six   	    |
+          seven 	    |
+          eight 	    |
+          nine  		|
+          ten			|
+          eleven		|
+          twelve		|
+          thirteen		|
+          fourteen		|
+          fifteen		|
+          sixteen		|
+          seventeen		|
+          eighteen		|
+          nineteen		|
+          twenty		|
+          thirty		;
+
+
+<month> = january		        |
+					february	|
+					march 		|
+					april		|
+					may			|
+					june		|
+					july		|
+					august		|
+					september	|
+					october		|
+					november	|
+					december	;
+
+<day> = first					|
+				second			|
+				third			|
+				forth			|
+				fifth			|
+				sixth			|
+				seventh			|
+				eighth			|
+				ninth		    |
+				tenth			|
+				eleventh		|
+				twelfth			|
+				thirteenth		|
+				fourteenth		|
+				fifteenth		|
+				sixteenth		|
+				seventeenth		|
+				eighteenth		|
+				nineteenth		|
+				twentieth		|
+				thirtieth		;
+
+<number> = <digit>+ [point <digit>+];
+
+<switch> = off | on | open | close | down | gain | plus | reduction;
+
+<time> = [<digit>+] | <digit> hour | <digit> day | <digit> month | <digit> week;
+
+<call_jarvis_command> = [jarvis] [[are] you there] [hi | hey | hello | well] [good morning | good afternoon | good evening] [jarvis] [how are you | hi there | how are you doing] [jarvis];
+
+<sounds> = [mute | sound <switch> | sounds <switch> | <switch> sounds | <switch> sound | voice <switch> | <switch> voice | audio <switch> | <switch> audio];
+
+<close_system> = [shutdown | close] [system] [power off | power down ];
+
+<mission> = [jarvis] [give | help | let's] [me] [do | make] [<sounds> | <close_system>] [on | in | at | after] <time>;
+
+<set_plan> = [jarvis] [[give | help] me] [let's] [set | make | draw up] [a] plan [for me] [jarvis];
+<del_plan> = [jarvis] [[give | help] me] [let's] [delete | cut off | cut out | amputate | strike out] [a] plan [for me] [jarvis];
+
+public <command> = <call_jarvis_command> | <set_plan> | <del_plan> | <sounds> | <close_system>;

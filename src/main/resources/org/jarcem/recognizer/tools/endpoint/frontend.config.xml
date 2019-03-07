@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Sphinx-4 Configuration file
+-->
+<config>
+    <component name="endpointer" type="org.jarcem.recognizer.frontend.FrontEnd">
+        <propertylist name="pipeline">
+            <item>audioFileDataSource</item>
+            <item>dataBlocker</item>
+            <item>speechClassifier</item>
+            <item>speechMarker</item>
+            <item>wavWriter</item>
+        </propertylist>
+    </component>
+
+    <component name="audioFileDataSource" type="org.jarcem.recognizer.frontend.util.AudioFileDataSource"/>
+
+    <component name="dataBlocker" type="org.jarcem.recognizer.frontend.DataBlocker"/>
+
+    <component name="speechClassifier" type="org.jarcem.recognizer.frontend.endpoint.SpeechClassifier"/>
+
+    <component name="speechMarker" type="org.jarcem.recognizer.frontend.endpoint.SpeechMarker">
+        <property name="speechLeader" value="200"/>
+        <property name="speechTrailer" value="200"/>
+    </component>
+
+    <component name="wavWriter" type="org.jarcem.recognizer.frontend.util.WavWriter">
+        <property name="outFilePattern" value="test-seg000000"/>
+        <property name="captureUtterances" value="true"/>
+    </component>
+</config>
