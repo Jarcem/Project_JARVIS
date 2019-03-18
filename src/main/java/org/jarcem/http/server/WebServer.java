@@ -35,7 +35,7 @@ public class WebServer {
         static OutputStream os = null;
 //        static InputStream is = null;
         static void start() throws IOException {
-            serverSocket = new ServerSocket(80);
+            serverSocket = new ServerSocket(8080);
             while (socket ==null){
                 socket = serverSocket.accept();
                 System.out.println("connected");
