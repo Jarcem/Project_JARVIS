@@ -25,25 +25,22 @@ public class WebServer {
     }
     static class Server{
         static ServerSocket serverSocket = null;
-        static Socket socket = null;
-        static OutputStream os = null;
-//        static InputStream is = null;
         static void start() throws IOException {
             serverSocket = new ServerSocket(808);
             while (true) {
-                socket = serverSocket.accept();
-                System.out.println("connected");
-                updataMsg();
+                Socket socket = serverSocket.accept();
+                System.out.println(socket.getInetAddress().toString());
+                updataMsg(socket);
             }
         }
-        static void updataMsg() throws IOException {
+        static void updataMsg(Socket socket) throws IOException {
             if (socket != null){
-                os = socket.getOutputStream();
-                os.write("HTTP/1.1 200 OK\r\n".getBytes());
-                os.write("Content-Type:text/html;charset=utf-8\r\n".getBytes());
-                os.write("Content-Length:38\r\n".getBytes());
-                os.write("Server:gybs\r\n".getBytes());
-                os.write("\r\n".getBytes());
+                OutputStream os = socket.getOutputStream();
+//                os.write("HTTP/1.1 200 OK\r\n".getBytes());
+//                os.write("Content-Type:text/html;charset=utf-8\r\n".getBytes());
+//                os.write("Content-Length:38\r\n".getBytes());
+//                os.write("Server:gybs\r\n".getBytes());
+//                os.write("\r\n".getBytes());
                 os.write("<h1>hello!</h1>".getBytes());
                 os.write("<h3>HTTP服务器!</h3>".getBytes("utf-8"));
                 os.close();
