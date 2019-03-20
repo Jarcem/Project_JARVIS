@@ -1,16 +1,24 @@
-package org.jarcem.http.server;
+package org.jarcem;
 /*
   Author: Jarcem
   Date: 2019/3/7
   Purpose: 
 */
 
-import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
+import org.apache.catalina.LifecycleException;
+import org.jarcem.http.server.TomcatServer;
 
-public class WebServer {
+import java.io.*;
+
+public class Main {
     public static void main(String[] args) throws IOException {
+        TomcatServer tomcatServer = new TomcatServer();
+        try {
+            tomcatServer.init();
+        } catch (LifecycleException e) {
+            e.printStackTrace();
+        }
+//        System.out.println(System.getProperty("user.dir"));
 //        Server.start();
 //        Recognizer.initSystem();
 //        SpeechResult speechResult = null;

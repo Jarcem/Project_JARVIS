@@ -32,6 +32,6 @@ public class SphinxHelp {
         System.out.println("   This is version " + VERSION + '.');
         System.out.println("   For information on how to configure and run");
         System.out.println("   Sphinx-4 please read:");
-        System.out.println("   http://cmusphinx.sourceforge.net/sphinx4");
+        System.out.println("   web://cmusphinx.sourceforge.net/sphinx4");
     }
 }

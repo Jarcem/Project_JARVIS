@@ -37,7 +37,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- jaxb模块引用 - start -->
+        <!-- jaxb - start -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
@@ -58,7 +58,7 @@
             <artifactId>activation</artifactId>
             <version>1.1.1</version>
         </dependency>
-        <!-- jaxb模块引用 - end -->
+        <!-- jaxb - end -->
 
         <!-- mary tts -->
             <dependency>
@@ -72,5 +72,13 @@
                 <version>5.2-beta3</version>
             </dependency>
         <!-- mary tts end-->
+
+        <!-- tomcat7 -->
+        <dependency>
+            <groupId>org.apache.tomcat.maven</groupId>
+            <artifactId>tomcat7-maven-plugin</artifactId>
+            <version>2.2</version>
+        </dependency>
+        <!-- tomcat7 end -->
     </dependencies>
 </project>
