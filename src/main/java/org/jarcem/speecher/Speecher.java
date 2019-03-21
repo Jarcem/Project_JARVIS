@@ -32,7 +32,7 @@ public class Speecher {
             System.exit(1);
         }
     }
-    public static void speech(AudioInputStream audio){
+    private static void speech(AudioInputStream audio){
         try {
             //play audio
             AudioFormat audioFormat = audio.getFormat();

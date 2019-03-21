@@ -7,17 +7,23 @@ package org.jarcem;
 
 import org.apache.catalina.LifecycleException;
 import org.jarcem.http.server.TomcatServer;
+import org.jarcem.speecher.Speecher;
 
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
-        TomcatServer tomcatServer = new TomcatServer();
-        try {
-            tomcatServer.init();
-        } catch (LifecycleException e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws Exception {
+//        TomcatServer tomcatServer = new TomcatServer();
+//        try {
+//            tomcatServer.init();
+//        } catch (LifecycleException e) {
+//            e.printStackTrace();
+//        }
+        String[] strs = {"welcome home sir.", "be careful sir.", "always at your service sir."};
+        for (int i = 0; i < strs.length; i++){
+            Speecher.toMary(strs[i]);
         }
+
 //        System.out.println(System.getProperty("user.dir"));
 //        Server.start();
 //        Recognizer.initSystem();
