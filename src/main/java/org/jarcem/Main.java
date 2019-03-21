@@ -19,7 +19,7 @@ public class Main {
 //        } catch (LifecycleException e) {
 //            e.printStackTrace();
 //        }
-        String[] strs = {"welcome home sir.", "be careful sir.", "always at your service sir."};
+        String[] strs = {"welcome home sir.", "watch out.", "be careful sir.", "always at your service sir."};
         for (int i = 0; i < strs.length; i++){
             Speecher.toMary(strs[i]);
         }
