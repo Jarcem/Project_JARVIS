@@ -21,7 +21,7 @@ public class Main {
 //        }
         String[] strs = {"welcome home sir.", "watch out.", "be careful sir.", "always at your service sir."};
         for (int i = 0; i < strs.length; i++){
-            Speecher.toMary(strs[i]);
+            Speecher.say(strs[i]);
         }
 
 //        System.out.println(System.getProperty("user.dir"));

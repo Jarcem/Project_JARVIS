@@ -12,7 +12,7 @@ import marytts.exceptions.SynthesisException;
 import javax.sound.sampled.*;
 
 public class Speecher {
-    public static void toMary(String str) throws Exception{
+    public static void say(String str) throws Exception{
         LocalMaryInterface mary = null;
         try {
             mary = new LocalMaryInterface();
